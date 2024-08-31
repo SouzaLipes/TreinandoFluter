@@ -1,0 +1,6 @@
+      body: Container(
+          decoration: const BoxDecoration(image: DecorationImage(
+            image: AssetImage('./images/back.webp'),
+            fit: BoxFit.cover
+          )),
+      ),
