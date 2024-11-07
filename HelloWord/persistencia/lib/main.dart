@@ -21,17 +21,17 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       home: Scaffold(
         body: IndexedStack(
-          index: _currentIndex, // Controla qual página será exibida
+          index: _currentIndex, 
           children: [
-            MyLoginPage(), // Página de login
-            MycadastroPagState(), // Página de cadastro
+            MyLoginPage(), 
+            MycadastroPagState(),
           ],
         ),
         bottomNavigationBar: BottomNavigationBar(
-          currentIndex: _currentIndex, // Controla o índice atual
+          currentIndex: _currentIndex, 
           onTap: (int index) {
             setState(() {
-              _currentIndex = index; // Atualiza o índice da página atual
+              _currentIndex = index; 
             });
           },
           items: const [

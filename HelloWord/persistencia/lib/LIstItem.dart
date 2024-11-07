@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 class ListItemPage extends StatefulWidget {
-  final String usuario; // Adiciona um parâmetro para o usuário
+  final String usuario;
 
-  ListItemPage({required this.usuario}); // Construtor
+  ListItemPage({required this.usuario}); 
 
   @override
   _ListItemPageState createState() => _ListItemPageState();

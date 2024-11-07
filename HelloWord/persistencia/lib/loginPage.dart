@@ -19,21 +19,20 @@ class _MyLoginPageState extends State<MyLoginPage> {
     final senha = prefs.getString('senha');
 
     if (_emailController.text == email && _senhaController.text == senha) {
-      // Armazena a hora do último login bem-sucedido
+
       final agora = DateTime.now().toString();
       await prefs.setString('lastLogin', agora);
 
-      // Navega para a tela de boas-vindas com o nome do usuário
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
           builder: (context) => BemVindoPage(
-            nomeUsuario: 'Usuário', // Substitua pelo nome do usuário se necessário
+            nomeUsuario: 'Usuário', 
           ),
         ),
       );
     } else {
-      // Exibe um diálogo de erro se os dados estiverem incorretos
+
       showDialog(
         context: context,
         builder: (context) => AlertDialog(

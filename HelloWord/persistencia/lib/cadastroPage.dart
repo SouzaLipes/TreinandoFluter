@@ -11,7 +11,6 @@ class MycadastroPagState extends StatefulWidget {
 class __MycadastroPagState extends State<MycadastroPagState> {
   bool _obscureText = true;
 
-  // Controladores para os campos de texto
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _senhaController = TextEditingController();
 
@@ -20,7 +19,6 @@ class __MycadastroPagState extends State<MycadastroPagState> {
     await prefs.setString('email', _emailController.text);
     await prefs.setString('senha', _senhaController.text);
 
-    // Exibe uma mensagem de confirmação
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(content: Text('Dados cadastrados com sucesso!')),
     );
