@@ -13,7 +13,6 @@ class _ListarExcluirUsuarioState extends State<ListarExcluirUsuario> {
   Map<String, dynamic>? _usuario;
   final DatabaseHelper _dbHelper = DatabaseHelper();
 
-  // Função para buscar usuário pela matrícula
   Future<void> _buscarUsuario() async {
     final matricula = _matriculaController.text;
     List<Map<String, dynamic>> resultado = await _dbHelper.listarUsuarios();
@@ -33,7 +32,6 @@ class _ListarExcluirUsuarioState extends State<ListarExcluirUsuario> {
     }
   }
 
-  // Função para excluir usuário pela matrícula
   Future<void> _excluirUsuario() async {
     if (_usuario != null) {
       await _dbHelper.excluirUsuario(_usuario!['matricula']);

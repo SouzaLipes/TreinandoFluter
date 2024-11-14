@@ -38,25 +38,23 @@ class DatabaseHelper {
     );
   }
 
-  // Função para inserir usuário
+
   Future<void> inserirUsuario(Map<String, dynamic> usuario) async {
     final db = await database;
     await db.insert("usuarios", usuario, conflictAlgorithm: ConflictAlgorithm.replace);
   }
 
-  // Função para listar usuários
+
   Future<List<Map<String, dynamic>>> listarUsuarios() async {
     final db = await database;
     return await db.query("usuarios");
   }
 
-  // Função para excluir usuário
   Future<void> excluirUsuario(String matricula) async {
     final db = await database;
     await db.delete("usuarios", where: "matricula = ?", whereArgs: [matricula]);
   }
 
-  // Função para atualizar usuário
   Future<void> atualizarUsuario(String matricula, Map<String, dynamic> usuario) async {
     final db = await database;
     await db.update("usuarios", usuario, where: "matricula = ?", whereArgs: [matricula]);

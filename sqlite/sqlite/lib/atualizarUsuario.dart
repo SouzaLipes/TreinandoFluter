@@ -16,11 +16,10 @@ class _AtualizarUsuarioState extends State<AtualizarUsuario> {
 
   final DatabaseHelper _dbHelper = DatabaseHelper();
 
-  // Função para buscar o usuário pelo número de matrícula
   Future<void> _buscarUsuario() async {
     final matricula = _matriculaController.text;
 
-    // Consulta o banco de dados para buscar o usuário com a matrícula especificada
+
     List<Map<String, dynamic>> resultado = await _dbHelper.listarUsuarios();
     final usuario = resultado.firstWhere(
       (user) => user['matricula'] == matricula,
@@ -34,14 +33,13 @@ class _AtualizarUsuarioState extends State<AtualizarUsuario> {
         _idadeController.text = usuario['idade'].toString();
       });
     } else {
-      // Exibe uma mensagem caso o usuário não seja encontrado
+
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text("Usuário não encontrado")),
       );
     }
   }
 
-  // Função para atualizar o usuário no banco de dados
   Future<void> _atualizarUsuario() async {
     final matricula = _matriculaController.text;
 
@@ -53,13 +51,11 @@ class _AtualizarUsuarioState extends State<AtualizarUsuario> {
 
     await _dbHelper.atualizarUsuario(matricula, usuarioAtualizado);
 
-    // Limpa os campos após a atualização
     _matriculaController.clear();
     _nomeController.clear();
     _cursoController.clear();
     _idadeController.clear();
 
-    // Confirma a atualização com uma mensagem
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(content: Text("Usuário atualizado com sucesso")),
     );
